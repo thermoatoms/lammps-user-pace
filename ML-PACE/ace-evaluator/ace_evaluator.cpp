@@ -616,6 +616,7 @@ ACECTildeEvaluator::compute_atom(int i, DOUBLE_TYPE **x, const SPECIES_TYPE *typ
     printf("loop over neighbours\n");
 #endif
 
+    if (!energy_only) {
     forces_calc_loop_timer.start();
 // loop over neighbour atoms for force calculations
     for (jj = 0; jj < jnum_actual; ++jj) {
@@ -786,6 +787,7 @@ ACECTildeEvaluator::compute_atom(int i, DOUBLE_TYPE **x, const SPECIES_TYPE *typ
     }// end loop over neighbour atoms for forces
 
     forces_calc_loop_timer.stop();
+    } // end if (!energy_only)
 
     //now, energies and forces are ready
     //energies(i) = evdwl + rho_core;
